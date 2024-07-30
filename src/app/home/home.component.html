@@ -1,0 +1,20 @@
+<table>
+    <thead>
+        <tr>
+            <th scope="col">User ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (users$ | async; as users) {
+            <tr *ngFor="let user of users">
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+            </tr>
+        }
+    </tbody>
+</table>
