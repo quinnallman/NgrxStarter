@@ -7,9 +7,16 @@ import { Observable } from 'rxjs';
     providedIn: 'root',
 })
 export class UserService {
+    BASE_URL = 'https://jsonplaceholder.typicode.com'
     constructor(private http: HttpClient) {}
 
     getUsers(): Observable<User[]> {
-        return this.http.get<User[]>('https://jsonplaceholder.typicode.com/users')
+        const url = this.BASE_URL + '/users'
+        return this.http.get<User[]>(url)
+    }
+
+    updateUser(user: User): Observable<User> {
+        const url = this.BASE_URL + '/users/' + user.id
+        return this.http.put<User>(url, user)
     }
 }
