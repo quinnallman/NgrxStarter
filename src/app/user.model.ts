@@ -7,6 +7,7 @@ export interface User {
     phone: string;
     website: string;
     company: Company;
+    editing?: boolean;
 }
 
 export interface UserAddress {
