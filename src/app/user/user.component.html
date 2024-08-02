@@ -1,0 +1,15 @@
+<tr>
+    @if (user.editing) {
+        <td>{{ user.id }}</td>
+        <td><input type="text" [(ngModel)]="user.name"></td>
+        <td><input type="text" [(ngModel)]="user.username"></td>
+        <td><input type="text" [(ngModel)]="user.email"></td>
+        <td><button (click)="save$.next(true)">Save</button></td>
+    } @else {
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td><button (click)="user.editing = true" [disabled]="user.editing">Edit</button></td>
+    }
+</tr>
