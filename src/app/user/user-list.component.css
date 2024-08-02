@@ -1,9 +1,9 @@
-thead {
-  background-color: lightblue;
+section {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 }
 
-th {
-  min-width: 5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+section > strong {
+  background-color: lightblue;
+  padding: 2px;
 }
