@@ -33,11 +33,11 @@ export class UserComponent implements OnInit, OnDestroy {
         ).subscribe({
             next: () => {
                 this.user.editing = false
-              },
-              error: err => {
+            },
+            error: err => {
                 // notify user, log error, etc.
                 console.debug('Error updating user: ' + err)
-              }
+            }
         })
     }
 
