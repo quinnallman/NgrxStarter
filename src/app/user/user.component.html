@@ -1,15 +1,15 @@
-<tr>
+<form [formGroup]="userForm">
     @if (user.editing) {
-        <td>{{ user.id }}</td>
-        <td><input type="text" [(ngModel)]="user.name"></td>
-        <td><input type="text" [(ngModel)]="user.username"></td>
-        <td><input type="text" [(ngModel)]="user.email"></td>
-        <td><button (click)="save$.next(true)">Save</button></td>
+        <div>{{ user.id }}</div>
+        <div><input type="text" formControlName="name"></div>
+        <div><input type="text" formControlName="username"></div>
+        <div><input type="text" formControlName="email"></div>
+        <div><button (click)="save$.next(true)">Save</button></div>
     } @else {
-        <td>{{ user.id }}</td>
-        <td>{{ user.name }}</td>
-        <td>{{ user.username }}</td>
-        <td>{{ user.email }}</td>
-        <td><button (click)="user.editing = true" [disabled]="user.editing">Edit</button></td>
+        <div>{{ user.id }}</div>
+        <div>{{ userForm.value.name }}</div>
+        <div>{{ userForm.value.username }}</div>
+        <div>{{ userForm.value.email }}</div>
+        <div><button (click)="user.editing = true" [disabled]="user.editing">Edit</button></div>
     }
-</tr>
+</form>

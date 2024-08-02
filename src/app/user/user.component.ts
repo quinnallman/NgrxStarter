@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from "@angular/core";
 import { User } from "./user.model";
 import { UserService } from "./user.service";
-import { FormControl } from "@angular/forms";
+import { FormControl, FormGroup } from "@angular/forms";
 import { Subject, Subscription, exhaustMap, timer } from "rxjs";
 
 @Component({
@@ -16,11 +16,13 @@ export class UserComponent implements OnInit, OnDestroy {
         username: '',
         email: '',
         editing: false,
-    };
+    }
 
-    name = new FormControl(this.user.name)
-    username = new FormControl(this.user.username)
-    email = new FormControl(this.user.email)
+    userForm = new FormGroup({
+        name: new FormControl(''),
+        username: new FormControl(''),
+        email: new FormControl(''),
+    })
 
     save$: Subject<boolean> = new Subject()
     saveSubscription?: Subscription
@@ -28,8 +30,19 @@ export class UserComponent implements OnInit, OnDestroy {
     constructor(private userService: UserService) {}
 
     ngOnInit(): void {
+        this.userForm.setValue({
+            name: this.user.name,
+            username: this.user.username,
+            email: this.user.email,
+        })
+
         this.saveSubscription = this.save$.pipe(
-            exhaustMap(() => this.userService.updateUser(this.user))
+            exhaustMap(() => this.userService.updateUser({
+                ...this.user,
+                name: this.userForm.value.name ?? '',
+                username: this.userForm.value.username ?? '',
+                email: this.userForm.value.email ?? '',
+            }))
         ).subscribe({
             next: () => {
                 this.user.editing = false
