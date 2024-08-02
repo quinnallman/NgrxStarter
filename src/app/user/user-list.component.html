@@ -1,0 +1,18 @@
+<table>
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (users$ | async; as users) {
+            @for (user of users$ | async; track user.id) {
+                <user [user]="user"></user>
+            }
+        }
+    </tbody>
+</table>

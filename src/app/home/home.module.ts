@@ -4,7 +4,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HomeComponent} from "./home.component";
 import {CommonModule} from "@angular/common";
 import {provideHttpClient} from "@angular/common/http";
-import { UserComponent } from "../user.component";
+import { UserComponent } from "../user/user.component";
+import { UserListComponent } from "../user/user-list.component";
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import { UserComponent } from "../user.component";
     ],
     declarations: [
         HomeComponent,
-        UserComponent
+        UserComponent,
+        UserListComponent
     ],
     exports: [
         HomeComponent

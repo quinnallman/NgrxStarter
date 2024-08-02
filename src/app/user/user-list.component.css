@@ -1,0 +1,9 @@
+thead {
+  background-color: lightblue;
+}
+
+th {
+  min-width: 5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
