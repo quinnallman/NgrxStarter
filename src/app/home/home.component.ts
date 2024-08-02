@@ -26,16 +26,4 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.users$ = this.userService.getUsers()
   }
-
-  saveUser(user: User) {
-    this.userService.updateUser(user).subscribe({
-      next: () => {
-        user.editing = false;
-      },
-      error: err => {
-        // notify user, log error, etc.
-        console.debug('Error updating user: ' + err)
-      }
-    })
-  }
 }

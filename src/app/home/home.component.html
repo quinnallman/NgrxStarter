@@ -11,21 +11,7 @@
     <tbody>
         @if (users$ | async; as users) {
             @for (user of users; track user.id) {
-                <tr>
-                    @if (user && user.editing) {
-                        <td>{{ user.id }}</td>
-                        <td><input type="text" [(ngModel)]="user.name"></td>
-                        <td><input type="text" [(ngModel)]="user.username"></td>
-                        <td><input type="text" [(ngModel)]="user.email"></td>
-                        <td><button (click)="saveUser(user)">Save</button></td>
-                    } @else if (user) {
-                        <td>{{ user.id }}</td>
-                        <td>{{ user.name }}</td>
-                        <td>{{ user.username }}</td>
-                        <td>{{ user.email }}</td>
-                        <td><button (click)="user.editing = true">Edit</button></td>
-                    }
-                </tr>
+                <user [user]="user"></user>
             }
         }
     </tbody>

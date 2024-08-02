@@ -3,10 +3,10 @@ export interface User {
     name: string;
     username: string;
     email: string;
-    address: UserAddress;
-    phone: string;
-    website: string;
-    company: Company;
+    address?: UserAddress;
+    phone?: string;
+    website?: string;
+    company?: Company;
     editing?: boolean;
 }
 
