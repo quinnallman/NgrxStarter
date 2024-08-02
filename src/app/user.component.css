@@ -1,0 +1,15 @@
+:host {
+    display: contents;
+}
+
+td {
+    padding-right: 1rem;
+}
+
+td:last-child {
+    padding: 0;
+}
+
+button {
+    width: 100%;
+}

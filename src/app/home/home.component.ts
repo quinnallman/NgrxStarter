@@ -6,7 +6,17 @@ import { Observable, from } from "rxjs";
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
-  styles: [``]
+  styles: [`
+    thead {
+      background-color: lightblue;
+    }
+
+    th {
+      min-width: 5rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  `]
 })
 export class HomeComponent implements OnInit {
   users$: Observable<User[]> = from([])
